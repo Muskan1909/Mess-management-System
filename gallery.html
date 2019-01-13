@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<title>Mess management</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+body,h1 {font-family: "Montserrat", sans-serif}
+img {margin-bottom: -7px}
+.w3-row-padding img {margin-bottom: 12px}
+</style>
+<body>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+	<a href="main page.html" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Home</a>
+    <a href="menu.html" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Menu for the week</a>
+    <a href="admin_login.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Admin login</a>
+	<a href="student_signup.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Student Signup</a>
+    <a href="student_login.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Student login</a>
+    <a href="gallery.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Gallery</a>
+	
+    <!--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>-->
+  </div>
+  </div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-black w3-animate-top w3-xxlarge" style="display:none;padding-top:150px" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-black w3-xxlarge w3-padding w3-display-topright" style="padding:6px 24px">
+    <i class="fa fa-remove"></i>
+  </a>
+  <div class="w3-bar-block w3-center">
+    <a href="main page.html" class="w3-bar-item w3-button w3-text-grey w3-hover-white">Home</a>
+    <a href="gallery.html" class="w3-bar-item w3-button w3-text-grey w3-hover-white">Photos</a>
+    <a href="#" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Shop</a>-->
+    <a href="contact.html" class="w3-bar-item w3-button w3-text-grey w3-hover-white">Contact</a>
+  </div>
+</nav>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1500px">
+
+<!-- Header -->
+<!--<div class=" w3-black">
+<span class="w3-button w3-xxlarge w3-white w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></span> -->
+<div class="w3-clear"></div>
+<header class="w3-center w3-margin-bottom">
+  <h1><b>PHOTO GALLERY</b></h1>
+  <h1><b>Hostel and Hostel mess photos</b></h1>
+  <p class="w3-padding-16"><button class="w3-button w3-black" onclick="myFunction()">Toggle Grid Padding</button></p>
+</header>
+</div>
+
+<!-- Photo Grid -->
+<div class="w3-row" id="myGrid" style="margin-bottom:128px">
+  <div class="w3-third">
+    <!--<img src="hostel.png" style="width:100%">-->
+    <img src="151203114119_pic23.jpg" style="width:100%">
+    <img src="culinary-arts.jpg" style="width:100%">
+   <img src="mess8.jpeg" style="width:100%">
+    <img src="mess2.jpeg" style="width:100%">
+    <img src="mess6.jpeg" style="width:100%">
+  </div>
+
+  <div class="w3-third">
+    <img src="mess.jpg" style="width:100%">
+    <img src="mess3.jpeg" style="width:100%">
+    <img src="mess7.jpeg" style="width:100%">
+    <img src="mess5.jpeg" style="width:100%">
+    <!--<img src="mess9.jpeg" style="width:100%">->
+    <!--<img src=".jpeg" style="width:100%">-->
+  </div>
+
+  <div class="w3-third">
+    <img src="hostel.png" style="width:100%">
+    <img src="6.jpg" style="width:100%">
+    <img src="mess1.jpeg" style="width:100%">
+    <img src="mess4.jpeg" style="width:100%">
+    <img src="mess8.jpeg" style="width:100%">
+    <!--<img src="/w3images/workshop.jpg" style="width:100%">-->
+  </div>
+</div>
+
+<!-- End Page Content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-black w3-center  w3-xlarge" style="margin-top:128px"> 
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  <!--<p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>-->
+</footer>
+ 
+<script>
+// Toggle grid padding
+function myFunction() {
+    var x = document.getElementById("myGrid");
+    if (x.className === "w3-row") {
+        x.className = "w3-row-padding";
+    } else { 
+        x.className = x.className.replace("w3-row-padding", "w3-row");
+    }
+}
+
+// Open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.width = "100%";
+    document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<?php
+if(isset($_POST["submit"]))
+{
+$rollnumber=$_POST['rollnumber'];
+$email=$_POST['email'];
+$password=$_POST['password'];
+		$password1=$_POST['password1'];
+if ($f_size> $_POST['MAX_FILE_SIZE'])
+	{
+		echo "<script>alert('file size is bigger');</script>";
+		header('location:student_login.html');
+	}
+	else
+{
+	$extension=substr(basename($f_name),strrpos(basename($f_name),".")+1);
+	$allowedextension=array("jpg","bmp","gif","png","jpeg");
+	if(!in_array($extension,$allowedextension))
+	{
+		echo "<script>alert('extension not allowed');</script>";
+		header('location:student_login.html');
+	}
+	else
+	{
+	$imagename=time().$f_name;
+	$filedir="./Images/";
+	$filepath = $filedir.$imagename;
+			
+			$a=mysqli_connect("localhost","root","","authentication");
+							if(!$a){
+							  echo "could not connect". mysql_error($a).mysql_errno($a);
+							 }
+							else { echo "connected successfully";header('location:student_login.html');}
+							$b=mysqli_select_db($a,'authentication');
+							
+							if(!$b)
+							{
+								echo "can not connect to database";
+							}
+		if(move_uploaded_file($f_temp, $filepath))
+			{
+							
+			}
+			else
+			{
+				echo "<script>alert('There was an error uploading the file, please try again!');</script>";
+				header('location:student_login.html');
+			}
+			if($password==$password2)
+			{
+				$passwordmd5=md5($password);
+			$mno="INSERT INTO login(rollnumber,email,Password,Password2)VALUES('$rollnumber,$email,$Password,$Password2')";
+		 $pqr="INSERT INTO register(rollnumber,email,Password,Password2)VALUES('$rollnumber,$email,$Password,$Password2')";
+			$insert=mysqli_query($a,$mno);
+			$insert1=mysqli_query($a,$pqr);
+				if($insert)
+				{
+					//echo "record added";
+					echo "<script>alert('Record Successfully Added');</script>";
+					header('location:student_login.php');
+				}
+				else
+				{
+					//echo "error".mysql_error();
+				}
+			}
+				else
+				{
+					echo "<script>alert('Incorrect Password');</script>";
+					//header('location:student_login.php');
+				}				
+				}
+}
+}
+?>
+
+
+
+
+
+<?php
+session_start();
+//connect to db
+$db=mysqli_connect("localhost","root","","authentication");
+
+if(isset($_POST['submit']))
+{
+session_start();
+$rollnumber=mysql_real_escape_string($_POST['rollnumber']);
+$email=mysql_real_escape_string($_POST['email']);
+$Password=mysql_real_escape_string($_POST['Password']);
+$Password2=mysql_real_escape_string($_POST['Password2']);
+if($Password == $Password2)
+{
+//create user
+$Password = md5($Password); //hash pswd before storing for security purposes
+$sql = "INSERT INTO user(rollnumber,email,password) VALUES('$rollnumber','$email','$Password')";
+mysqli_query($db,$sql);
+$_SESSION['message'] = "you are now logged in";
+$_SESSION['username'] = $username;
+header("location: main page.html"); //redirect to home page
+}
+else{
+$_SESSION['message']= " the two passwords do not match";
+}
+}
+?>

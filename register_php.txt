@@ -1,0 +1,26 @@
+<?php
+session_start();
+//connect to db
+$db=mysqli_connect("localhost","root","","authentication1");
+
+if(isset($_POST['submit']))
+{
+session_start();
+$rollnumber=mysql_real_escape_string($_POST['rollnumber']);
+$email=mysql_real_escape_string($_POST['email']);
+$Password=mysql_real_escape_string($_POST['Password']);
+if($Password == $Password2)
+{
+//create user
+$Password = md5($Password); //hash pswd before storing for security purposes
+$sql = "INSERT INTO user(rollnumber,email,password) VALUES('$rollnumber','$email','$Password')";
+mysqli_query($db,$sql);
+$_SESSION['message'] = "you are now logged in";
+$_SESSION['username'] = $username;
+header("location: student_login.php");
+}
+else{
+$_SESSION['message']= " the two passwords do not match";
+}
+}
+?>
